@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { XIconOutlined } from "../svg-icons/XIconOutlined";
+import { XIconOutlined } from "./svg-icons/XIconOutlined";
 
 const Wrapper = styled.button`
   cursor: pointer;

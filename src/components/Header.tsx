@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ThemeToggleButton } from "./svg-icon-buttons/ThemeToggleButton";
-import { HamburguerIconButton as StyledHamburguerButton } from "./svg-icon-buttons/HamburguerIconButton";
+import { ThemeToggleButton } from "./ThemeToggleButton";
+import { SidebarToggleButton } from "./SidebarToggleButton";
 import { Nav as StyledNav } from "./Nav";
 import { Container as StyledContainer } from "./Container";
 
@@ -34,6 +34,10 @@ const Leading = styled.div`
 
 const Title = styled.h1`
   font-size: ${(props) => props.theme.typography.h6.fontSize};
+  > a {
+    color: inherit;
+    text-decoration: none;
+  }
   ${(props) => {
     if (props.theme.palette.mode === "dark") {
       return `
@@ -57,7 +61,7 @@ const GhLink = styled.a`
       `;
     }
     return `
-      color: ${props.theme.palette.grey[600]};
+      color: ${props.theme.palette.grey[700]};
     `;
   }}
 `;
@@ -69,21 +73,16 @@ const Nav = styled(StyledNav)`
   `}
 `;
 
-const HamburguerIconButton = styled(StyledHamburguerButton)`
-  ${(props) => props.theme.media.lg`
-      display: none;
-  `}
-`;
-type Props = {
-  onOpenSidebar: () => void;
-};
-
-export const Header = ({ onOpenSidebar }: Props) => {
+export const Header = () => {
   return (
     <Wrapper>
       <Container>
         <Trailing>
-          <Title>Marvel</Title>
+          <Title>
+            <a href="/" title="Go to home page" aria-label="Go to homepage">
+              Marvel
+            </a>
+          </Title>
           <GhLink
             href="https://github.com/cicerohen/playground-styled-reactjs"
             target="_blank"
@@ -94,7 +93,7 @@ export const Header = ({ onOpenSidebar }: Props) => {
         <Leading>
           <ThemeToggleButton />
           <Nav />
-          <HamburguerIconButton onClick={onOpenSidebar} />
+          <SidebarToggleButton />
         </Leading>
       </Container>
     </Wrapper>

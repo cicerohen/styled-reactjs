@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { transparentize } from "polished";
-import { CloseIconButton } from "./svg-icon-buttons/CloseIconButton";
+
+import { useSidebarContext } from "../contexts/Sidebar";
 
 type Props = Partial<{
   isOpen: boolean;
@@ -29,7 +30,7 @@ const Backdrop = styled.div<Props>`
       visibility:  hidden;
       opacity: 0;
     `;
-  }}
+  }};
 `;
 
 const Wrapper = styled.aside<Props>`
@@ -65,16 +66,9 @@ const Wrapper = styled.aside<Props>`
   }};
 `;
 
-const Header = styled.div`
-  height: ${(props) => props.theme.typography.pxToRem(80)};
-  padding-left ${(props) => props.theme.typography.pxToRem(16)};
-  padding-right ${(props) => props.theme.typography.pxToRem(16)};
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
+export const Sidebar = () => {
+  const { isOpen } = useSidebarContext();
 
-export const Sidebar = ({ isOpen = false, onCloseSidebar }: Props) => {
   const applyBodyStyles = () => {
     const scrolWidth = window.innerWidth - document.body.clientWidth;
     document.body.style.marginRight = `${scrolWidth}px`;
@@ -100,11 +94,7 @@ export const Sidebar = ({ isOpen = false, onCloseSidebar }: Props) => {
   return (
     <>
       <Backdrop isOpen={isOpen} />
-      <Wrapper isOpen={isOpen}>
-        <Header>
-          <CloseIconButton onClick={onCloseSidebar} />
-        </Header>
-      </Wrapper>
+      <Wrapper isOpen={isOpen}></Wrapper>
     </>
   );
 };

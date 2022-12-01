@@ -1,9 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
+
+import { SidebarProvider } from "../contexts/Sidebar";
 
 const Wrpaper = styled.div``;
 
@@ -12,20 +13,12 @@ type Props = Partial<{
 }>;
 
 export const View = ({ children }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onOpenSidebar = () => {
-    setIsOpen(true);
-  };
-
-  const onCloseSidebar = () => {
-    setIsOpen(false);
-  };
-
   return (
     <Wrpaper>
-      <Sidebar isOpen={isOpen} onCloseSidebar={onCloseSidebar} />
-      <Header onOpenSidebar={onOpenSidebar} />
+      <SidebarProvider>
+        <Sidebar />
+        <Header />
+      </SidebarProvider>
       <main>{children}</main>
       <Footer />
     </Wrpaper>
