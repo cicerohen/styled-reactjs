@@ -6,7 +6,7 @@ import {
 import { themes } from "../theme/theme";
 import { Theme, Mode } from "../theme/types/theme";
 
-type ThemeModeContext = {
+export type ThemeModeContext = {
   setThemeMode: (mode: Mode) => void;
 };
 
@@ -20,9 +20,7 @@ type Props = {
 
 const getModeFromStorage = (): Mode => {
   try {
-    const mode = JSON.parse(
-      window.localStorage.getItem("theme:mode") as Mode
-    ) as Mode;
+    const mode = window.localStorage.getItem("theme:mode") as Mode;
 
     if (themes[mode]) {
       return mode;
@@ -34,7 +32,7 @@ const getModeFromStorage = (): Mode => {
 };
 
 const setModeToStorage = (mode: Mode) => {
-  window.localStorage.setItem("theme:mode", JSON.stringify(mode));
+  window.localStorage.setItem("theme:mode", mode);
 };
 
 export const ThemeProvider = ({ children }: Props) => {

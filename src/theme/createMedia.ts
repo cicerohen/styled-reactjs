@@ -1,8 +1,6 @@
-import { css } from "styled-components";
+import { Media } from "./types/media";
 
-import { Breakpoints, Media } from "./types/media";
-
-const defaultBreakpoints: Breakpoints = {
+const defaultMedia: Media = {
   sm: "screen and (min-width: 640px)",
   md: "screen and (min-width: 768px)",
   lg: "screen and (min-width: 1024px)",
@@ -10,17 +8,9 @@ const defaultBreakpoints: Breakpoints = {
   xxl: "screen and (min-width: 1536px)",
 };
 
-export const createMedia = (breakpoints?: Partial<Breakpoints>): Media => {
-  const bp: Breakpoints = {
-    ...defaultBreakpoints,
-    ...breakpoints,
+export const createMedia = (media?: Partial<Media>): Media => {
+  return {
+    ...defaultMedia,
+    ...media,
   };
-  return Object.keys(bp).reduce((acc, curr) => {
-    acc[curr as keyof Media] = (strings, ...interpolations) => css`
-      @media ${(bp as any)[curr]} {
-        ${css(strings, ...interpolations)};
-      }
-    `;
-    return acc;
-  }, {} as Media);
 };

@@ -24,6 +24,15 @@ const Wrapper = styled.section`
   min-height: ${(props) => {
     return props.theme.typography.pxToRem(252);
   }};
+
+  ${(props) => {
+    return `
+      @media ${props.theme.media.sm} {
+        min-height: ${props.theme.typography.pxToRem(348)};
+      }
+    `;
+  }};
+
   ${(props) => {
     if (props.theme.palette.mode === "dark") {
       return `
@@ -36,9 +45,6 @@ const Wrapper = styled.section`
       background-color: ${props.theme.palette.primary.main};
     `;
   }};
-  ${(props) => props.theme.media.sm`
-    min-height: ${props.theme.typography.pxToRem(348)};
-`}
 `;
 
 const Title = styled.h2`
@@ -48,12 +54,22 @@ const Title = styled.h2`
   color: ${(props) => props.theme.palette.grey[50]};
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
   font-size: ${(props) => props.theme.typography.h4.fontSize};
-  ${(props) => props.theme.media.sm`
-    font-size: ${props.theme.typography.h4.fontSize};
-  `}
-  ${(props) => props.theme.media.lg`
-    font-size: ${props.theme.typography.h3.fontSize};
-`}
+
+  ${(props) => {
+    return `
+      @media ${props.theme.media.sm} {
+        font-size: ${props.theme.typography.h4.fontSize};
+      }
+    `;
+  }};
+
+  ${(props) => {
+    return `
+      @media ${props.theme.media.lg} {
+        font-size: ${props.theme.typography.h3.fontSize};
+      }
+    `;
+  }};
 `;
 
 const Subtitle = styled.p`
@@ -61,10 +77,15 @@ const Subtitle = styled.p`
   font-size: ${(props) => props.theme.typography.subtitle1.fontSize};
   line-height: ${(props) => props.theme.typography.subtitle1.lineHeight};
   color: ${(props) => props.theme.palette.grey[50]};
-  ${(props) => props.theme.media.sm`
-      max-width: 70%;
-      margin: 0 auto;
-  `}
+
+  ${(props) => {
+    return `
+      @media ${props.theme.media.sm} {
+        max-width: 70%;
+        margin: 0 auto;
+      }
+    `;
+  }};
 `;
 
 export const Hero = () => {

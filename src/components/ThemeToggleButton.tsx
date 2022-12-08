@@ -78,7 +78,7 @@ export const ThemeToggleButton = () => {
   }, [theme]);
 
   return (
-    <Wrapper>
+    <Wrapper data-testid="theme-toggle-button">
       <Input
         title={title[theme.palette.mode]}
         aria-label="Turn off the light"

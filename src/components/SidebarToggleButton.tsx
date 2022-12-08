@@ -28,9 +28,6 @@ const Wrapper = styled.div<Pick<SidebarContext, "isOpen">>`
       `;
     }
   }}
-  ${(props) => props.theme.media.lg`
-    display: none;
-  `}
 `;
 
 const Input = styled.input`
@@ -58,7 +55,7 @@ export const SidebarToggleButton = () => {
   };
 
   return (
-    <Wrapper isOpen={isOpen}>
+    <Wrapper isOpen={isOpen} data-testid="sidebar-toggle-button">
       <Input
         type="checkbox"
         title="Open menu"

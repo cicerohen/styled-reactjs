@@ -3,9 +3,9 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: grid;
   grid-gap: ${(props) => props.theme.typography.pxToRem(8)};
-  ${(props) => props.theme.media.lg`
+  @media ${(props) => props.theme.media.lg} {
     grid-template-columns: repeat(3, 1fr);
-  `}
+  }
 `;
 
 export type Item = {
