@@ -64,7 +64,11 @@ export const SidebarToggleButton = () => {
         onChange={onChange}
       />
       <IconWrapper>
-        {isOpen ? <XIconOutlined /> : <Bars3IconOutlined />}
+        {isOpen ? (
+          <XIconOutlined data-testid="x-icon" />
+        ) : (
+          <Bars3IconOutlined data-testid="bars-3-icon" />
+        )}
       </IconWrapper>
     </Wrapper>
   );

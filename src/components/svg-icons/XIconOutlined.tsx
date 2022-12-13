@@ -1,12 +1,8 @@
 import styled from "styled-components";
-
+import { Icon, Props } from "../Icon";
 const Wrapper = styled.svg``;
 
-type Props = Partial<{
-  className: string;
-}>;
-
-export const XIconOutlined = ({ className }: Props) => {
+export const XIconOutlined = (props: Props) => {
   return (
     <Wrapper
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +10,7 @@ export const XIconOutlined = ({ className }: Props) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={className}
+      {...props}
     >
       <path
         strokeLinecap="round"
