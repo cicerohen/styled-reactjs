@@ -1,5 +1,6 @@
 # Playground Styled ReactJS
 
+
 [![Deploy](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/vercel.yml/badge.svg)](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/vercel.yml)
 [![Cypress](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/cypress.yml/badge.svg)](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/cypress.yml)
 
