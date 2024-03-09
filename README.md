@@ -1,4 +1,4 @@
-# Playground Styled ReactJS
+# Styled ReactJS
 
 
 [![Deploy](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/vercel.yml/badge.svg)](https://github.com/cicerohen/playground-styled-reactjs/actions/workflows/vercel.yml)
@@ -8,7 +8,6 @@ This is just a small project that shows how to theming a ReactJS app with Styled
 
 This was highly inspired by how Material-UI organizes its themes
 
-[Click here to see more examples](https://github.com/cicerohen/playground)
 
 ### Development
 
